@@ -12,12 +12,41 @@ document.addEventListener('DOMContentLoaded', function () {
     // document.addEventListener('.img_download')
 
 
-    // create new table
+    // vie new table and hide old tables
+    // function correction(){
+    //     let firstTable = document.querySelectorAll('table');
 
-    function correction() {
-        let firstTable = document.querySelectorAll('table');
-        console.log(firstTable.length);
 
-        // check if more then 2 tables
+    //     firstTable.forEach( e => {
+    //         e.classList.add('display-none');
+    //     });
+
+    //     firstTable[0].classList.remove('display-none');
+    // }
+    // correction();
+
+
+    function loadGraph() {
+        let addGraph = document.querySelector('.img_download');
+        addGraph.addEventListener('click', function () {
+            let firstTable = document.querySelectorAll('table');
+            firstTable[0].innerHTML += " ";
+        });
     }
+
+    function resetGraph() {
+        let reset = document.querySelector('.s_table__button');
+        reset.addEventListener('click', function () {
+
+            getArraysFromTable();
+
+            setting.chart.data.datasets[0].data = arrTable[1];
+            setting.chart.update({
+                duration: 800,
+                easing: 'easeOutBounce'
+            });
+        });
+    }
+
+    resetGraph();
 });

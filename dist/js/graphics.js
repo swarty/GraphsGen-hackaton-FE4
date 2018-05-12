@@ -4,13 +4,13 @@ const ctx = document.getElementById("myChart");
 // const elemInputChartName = document.getElementById("nameChartIn");
 const btnType = document.querySelector(".btn-type-wrp");
 /* ========== DOM ELEMENTS END ========== */
-const tbd = document.querySelector("tbody");
-const tr = tbd.querySelectorAll("tr");
+
 /* ============ CHART SETTING ============ */
-let a = null;
-let b = null;
 
 function getArraysFromTable() {
+  const tbd = document.querySelector("tbody");
+  const tr = tbd.querySelectorAll("tr");
+
   const quantity = tr.length;
   const td0 = Array.from(tr, el => el.querySelectorAll('td')[0].textContent);
   const td1 = Array.from(tr, el => el.querySelectorAll('td')[1].textContent);
