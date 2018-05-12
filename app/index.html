@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <title>your web</title>
-    
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:image" content="img/jpg">
-    <meta property="og:image:type" content="img/jpg">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
-    <meta property="og:title" content="">
-    <meta property="og:url" content="">
-    <meta property="og:description" content="">
-    <link rel="shoutcut icon" type="img/ico" href="img/favicon32.ico" sizes="32x32">
-    <link rel="icon" type="img/ico" href="img/favicon16.ico" sizes="16x12">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
-  
-  
+
+<head>
+  <title>your web</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:image" content="img/jpg">
+  <meta property="og:image:type" content="img/jpg">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+  <meta property="og:title" content="">
+  <meta property="og:url" content="">
+  <meta property="og:description" content="">
+  <link rel="shoutcut icon" type="img/ico" href="img/favicon32.ico" sizes="32x32">
+  <link rel="icon" type="img/ico" href="img/favicon16.ico" sizes="16x12">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="sass/main.sass"> -->
+</head>
+
+<body>
 
 
+  
   <!--logic -->
   <section class="s_logic">
     <input type="text" class="input__field">
@@ -39,6 +40,28 @@
   <!-- end logic -->
 
 
-<script src="js/dmytro.js"></script>
-  </body>
+
+
+
+
+
+  <!-- <start section> -->
+  <div class="wrapper">
+    <div class="row">
+      <!-- <div id="loadExcel"><img src="img/download.png" class="img_download"></div> -->
+      <input type="file" name="excel-table" id="loadExcel" class="img_download" />
+    </div>
+    <div id="htmlout">
+      <div id="outfile"></div>
+    </div>
+  </div>
+  <!-- <finished section> -->
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.12.12/xlsx.full.min.js"></script>
+  <script src="js/dmytro.js"></script>
+  <script src="js/s_table.js"></script>
+</body>
+
 </html>
