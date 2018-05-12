@@ -7,4 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // set for all row attribute edditable
         element.setAttribute('contenteditable', "true");
     });
+
+    // create new table
 });
