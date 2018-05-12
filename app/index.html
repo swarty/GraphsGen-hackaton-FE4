@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+<head>
+  <title>your web</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:image" content="img/jpg">
+  <meta property="og:image:type" content="img/jpg">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+  <meta property="og:title" content="">
+  <meta property="og:url" content="">
+  <meta property="og:description" content="">
+  <link rel="shoutcut icon" type="img/ico" href="img/favicon32.ico" sizes="32x32">
+  <link rel="icon" type="img/ico" href="img/favicon16.ico" sizes="16x12">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="sass/main.sass"> -->
+</head>
+
+<body>
+
+
+
+  <!--logic -->
+  <!-- <section class="s_logic">
+      <input type="text" class="input__field">
+      <table>
+        <tr>
+          <td>Red</td>
+          <td>200</td>
+        </tr>
+        <tr>
+          <td>White</td>
+          <td>300</td>
+        </tr>
+      </table>
+    </section> -->
+  <!-- end logic -->
+
+
+  <header class="s_header">FE4 ^__^</header>
+  <div class="s_content">
+    <aside class="s_leftBlock">
+      <div class="s_menu">
+        <button data-type="bar" class="s_menu__button">
+          <img src="img/icon-1.png" alt="">
+          Bar chart</button>
+        <button data-type="line" class="s_menu__button">
+          <img src="img/icon-2.png" alt="">
+          Line chart</button>
+        <button data-type="pie" class="s_menu__button s_menu__button--active">
+          <img src="img/icon-3.png" alt="">
+          Pie chart</button>
+        <button data-type="doughnut" class="s_menu__button" id="doughnut">
+          <img src="img/icon-4.png" alt="">
+          Doughnut chart</button>
+      </div>
+      <div class="s_table">
+        <div class="s_tableNavBar">
+          <input type="text" class="s_table__input">
+          <div>
+            <div id="loadExcel" class="img_download"><input type="file" name="excel-table"/></div>
+          </div>
+          <div href="#" class="s_table__colorPicker"></div>
+          <button class="s_table__button">Save</button>
+        </div>
+        <div class="s_tableBox">
+          <div id="htmlout">
+            <div id="outfile"></div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Месяц</th>
+                <th>Продажи</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Май</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Июнь</td>
+                <td contenteditable="true">500</td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Июль</td>
+                <td contenteditable="true">300</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="s_docName">
+          <span>Статистика за 2017.xls</span>
+        </div>
+      </div>
+      <div class="s_download">
+        <button class="s_downloadPdf">
+          <div class="icon"></div>
+          <div class="z">Download PDF</div>
+      </button>
+      </div>
+    </aside>
+    <main class="s_rightBlock">
+      <div class="s_chart">
+        <!-- <span>Pie chart</span> -->
+
+        <!-- section graphics logic -->
+        <div class="graphics">
+          <canvas class="myChart" id="myChart"></canvas>
+        </div>
+        <!-- end graphics logic -->
+
+      </div>
+    </main>
+  </div>
+
+
+  
+  <!-- tbody.innerHTML 
+  += `<tr>
+      <td contenteditable="true" onBlur=updateChart() >for_data</td>
+      <td contenteditable="true" onBlur=updateChart() >for_data</td>
+  </tr>`;
+setEqualWidth(); -->
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.12.12/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
+  <script src="js/s_table.js"></script>
+  <script src="js/graphics.js"></script>
+  <script src="js/dmytro.js"></script>
+  <script src="js/mouseMove.js"></script>
+</body>
+</html>
+

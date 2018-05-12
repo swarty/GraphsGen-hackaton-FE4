@@ -44,7 +44,7 @@ gulp.task('babel', function(){
       // .pipe(plumber())
       .pipe(wait(1500))
       .pipe(babel({
-          presets: ['es2015']
+          // presets: ['es2015']
       }))
       .pipe(gulp.dest('dist/js'))
 });

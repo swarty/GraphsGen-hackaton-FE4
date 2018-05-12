@@ -5,10 +5,12 @@ body
 	color: white
 	font-family: sans-serif;
 	background-color: #f1f2f2 
+.s_nav
+	margin-bottom: 30px
 .s_header
 	height: 75px
 	width: 100% 
-	background-color: blue; 
+	background-color: #3f51b5; 
 	margin-bottom: 70px
 .s_content
 	display: flex;
@@ -16,19 +18,16 @@ body
 	margin-bottom: 50px 
 .s_leftBlock
 	display: flex 
+	max-width: 32%
+	width: 100%
 	flex-direction: column;
-	justify-content: space-between;
-	flex: 1 1 auto;
-	height: 500px
-	padding-right: 25px;
-	padding-left: 25px  
+	min-height: 500px
 .s_table
 	background-color: #ffffff
 	box-shadow: -5px 6px 26px 0px rgba(0,0,0,0.75);
 	position: relative 
-	padding-left: 15px;
-	padding-right: 15px
-	padding-top: 15px   
+	padding: 15px
+	margin-bottom: 20px
 
 	&__input
 		width: 35%
@@ -72,9 +71,8 @@ body
 	color: #757575;
 	margin-top: 15px 
 .s_rightBlock
-	flex: 2 1 auto;
-	padding-right: 60px  
-	padding-left: 60px
+	max-width: 62%
+	width: 100%
 	span
 		color: #ff5722;
 		font-size: x-large;
@@ -84,27 +82,6 @@ body
 	padding-top: 20px 
 	background-color: #ffffff
 	box-shadow: -5px 6px 26px 0px rgba(0,0,0,0.75);
-/*.s_downloadPdf
-	color: white; 
-	font-size: 15px;
-	font-weight: 500 
-	width: 175px
-	background-color: #ff5722;
-	border: 1px solid #ff5722
-	border-radius: 15px
-	line-height: 2.7
-	text-indent: 27px;
-	padding: 0 15px;
-	position: relative;
-	&__icon
-		background: url(../../img/icon_downloadpdf.png) no-repeat transparent;
-		background-size: contain;
-		display: block
-		position: absolute;
-		width: 23px 
-		height: 30px 
-		top: 5px
-		left: 20px
 
 	
 

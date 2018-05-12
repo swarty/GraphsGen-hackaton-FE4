@@ -12,7 +12,7 @@
     outline: none;
     overflow: hidden;
     border-radius: 15px;
-    text-indent: 27px;
+    text-indent: 15px;
 
     span
         position: relative;
@@ -28,13 +28,13 @@
         top: var(--y);
         width: var(--size);
         height: var(--size);
-        background: radial-gradient(circle closest-side, #7155c1, transparent);
+        background: radial-gradient(circle closest-side, #fb1c3c, transparent);
         transform: translate(-50%, -50%);
         transition: width .2s ease, height .2s ease;
     
     
     &:hover::before
-        --size: 400px;
+        --size: 150px;
 
 .icon
 	background: url(../../img/icon_downloadpdf.png) no-repeat transparent;
@@ -48,11 +48,7 @@
 .z
 	display: inline-block
 	width: 100% 
-.z:after
-	content: "Download PDF"
-	position: relative
-	top: 0
-	left: -129px
+
 
  
 
