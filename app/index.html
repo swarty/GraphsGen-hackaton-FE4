@@ -14,28 +14,12 @@
   <meta property="og:title" content="">
   <meta property="og:url" content="">
   <meta property="og:description" content="">
-  <link rel="shoutcut icon" type="img/ico" href="img/favicon32.ico" sizes="32x32">
-  <link rel="icon" type="img/ico" href="img/favicon16.ico" sizes="16x12">
+  <!-- <link rel="shoutcut icon" type="img/ico" href="img/favicon32.ico" sizes="32x32"> -->
+  <!-- <link rel="icon" type="img/ico" href="img/favicon16.ico" sizes="16x12"> -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-
-<!--logic -->
-  <!-- <section class="s_logic">
-      <input type="text" class="input__field">
-      <table>
-        <tr>
-          <td>Red</td>
-          <td>200</td>
-        </tr>
-        <tr>
-          <td>White</td>
-          <td>300</td>
-        </tr>
-      </table>
-    </section> -->
-  <!-- end logic -->
 
 
   <header class="s_header">FE4 ^__^</header>
@@ -43,40 +27,36 @@
     <aside class="s_leftBlock">
       <div class="s_menu btn-type-wrp">
         <button data-type="bar" class="s_menu__button">
-          <img src="img/icon-1.png" alt="">
-          Bar chart</button>
+          <img src="img/icon-1.png" alt=""> Bar chart</button>
         <button data-type="line" class="s_menu__button">
-          <img src="img/icon-2.png" alt="">
-          Line chart</button>
+          <img src="img/icon-2.png" alt=""> Line chart</button>
         <button data-type="pie" class="s_menu__button s_menu__button--active">
-          <img src="img/icon-3.png" alt="">
-          Pie chart</button>
+          <img src="img/icon-3.png" alt=""> Pie chart</button>
         <button data-type="doughnut" class="s_menu__button" id="doughnut">
-          <img src="img/icon-4.png" alt="">
-          Doughnut chart</button>
+          <img src="img/icon-4.png" alt=""> Doughnut chart</button>
       </div>
       <div class="s_table">
         <div class="s_tableNavBar">
           <input type="text" class="s_table__input">
           <div>
-            <div id="loadExcel" class="img_download"><input type="file" name="excel-table"/></div>
+            <div id="loadExcel" class="img_download">
+              <input type="file" name="excel-table" />
+            </div>
           </div>
           <div href="#" class="s_table__colorPicker"></div>
-          <button class="s_table__button">Save</button>
+          <button class="s_table__button">Load</button>
         </div>
         <div class="s_tableBox">
           <div id="htmlout">
             <div id="outfile"></div>
           </div>
           <table class="native-table">
-            <thead>
-              <tr>
-                <th>Месяц</th>
-                <th>Сумма</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
+                <td>Месяц</td>
+                <td>Сумма</td>
+              </tr>
+              <tr>
                 <td contenteditable="true">Июнь</td>
                 <td contenteditable="true">500</td>
               </tr>
@@ -92,19 +72,20 @@
                 <td contenteditable="true">Июль</td>
                 <td contenteditable="true">300</td>
               </tr>
-              
+
             </tbody>
           </table>
         </div>
         <div class="s_docName">
-          <span>Статистика за 2017.xls</span>
+          <!-- enput text using JS -->
+          <span></span>
         </div>
       </div>
       <div class="s_download">
         <button class="s_downloadPdf">
           <div class="icon"></div>
           <div class="z">Download PDF</div>
-      </button>
+        </button>
       </div>
     </aside>
     <main class="s_rightBlock">
@@ -122,7 +103,7 @@
   </div>
 
 
-  
+
   <!-- tbody.innerHTML 
   += `<tr>
       <td contenteditable="true" onBlur=updateChart() >for_data</td>
@@ -130,15 +111,31 @@
   </tr>`;
 setEqualWidth(); -->
 
- 
+
+
+  <div class="holder">
+    <div class="preloader">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
 
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.12.12/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
-  <script src="js/s_table.js"></script>
-  <script src="js/graphics.js"></script>
-  <script src="js/dmytro.js"></script>
+  <!-- JQ for using fadein- fadeOut effects -->
+  <script src="libs/jquery-3.3.1.min.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/mouseMove.js"></script>
 </body>
+
 </html>
