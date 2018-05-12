@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 
+
 <head>
   <title>your web</title>
   <meta charset="utf-8">
@@ -40,12 +41,23 @@
   <!-- end logic -->
 
 
-
-
   <header class="s_header">FE4 ^__^</header>
   <div class="s_content">
     <aside class="s_leftBlock">
-      <div class="s_nav"></div>
+      <div class="s_menu">
+        <button data-type="bar" class="s_menu__button">
+          <img src="img/icon-1.png" alt="">
+          Bar chart</button>
+        <button data-type="line" class="s_menu__button">
+          <img src="img/icon-2.png" alt="">
+          Line chart</button>
+        <button data-type="pie" class="s_menu__button s_menu__button--active">
+          <img src="img/icon-3.png" alt="">
+          Pie chart</button>
+        <button data-type="doughnut" class="s_menu__button" id="doughnut">
+          <img src="img/icon-4.png" alt="">
+          Doughnut chart</button>
+      </div>
       <div class="s_table">
         <div class="s_tableNavBar">
           <input type="text" class="s_table__input">
@@ -156,5 +168,3 @@
   <script src="js/graphics.js"></script>
   <script src="js/dmytro.js"></script>
 </body>
-
-</html>
