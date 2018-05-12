@@ -1,37 +1,40 @@
-const ctx = document.getElementById("myChart");
-const elemInputChartName = document.getElementById("nameChartIn");
-// const btnType = document.querySelector(".btn-type-wrp");
 
+
+const ctx = document.getElementById("myChart");
+// const elemInputChartName = document.getElementById("nameChartIn");
+const btnType = document.querySelector(".btn-type-wrp");
+/* ========== DOM ELEMENTS END ========== */
 const tbd = document.querySelector("tbody");
 const tr = tbd.querySelectorAll("tr");
-
-const blockBtn = document.querySelector(".colors");
-const activeColor = document.querySelector(".active-color");
-
-let colorCell = ["hsl(81, 94%, 50%)", "hsl(162, 95%, 50%)", "hsl(141, 91%, 50%)", "hsl(164, 92%, 50%)", "hsl(219, 94%, 50%)", "hsl(260, 95%, 50%)", "hsl(11, 93%, 50%)", "hsl(238, 94%, 50%)", "hsl(289, 94%, 50%)", "hsl(78, 92%, 50%)"];
-let arrTable = null;
+/* ============ CHART SETTING ============ */
+let a = null;
+let b = null;
 
 function getArraysFromTable () {
   const quantity = tr.length;
   const td0 = Array.from(tr, el => el.querySelectorAll('td')[0].textContent);
   const td1 = Array.from(tr, el => el.querySelectorAll('td')[1].textContent);
+  
   return arrTable = [td0, td1];
 }
 getArraysFromTable();
 
 let meanings = arrTable[1];
 let name = arrTable[0];
+let colorCell = ["hsl(81, 94%, 50%)", "hsl(162, 95%, 50%)", "hsl(141, 91%, 50%)", "hsl(164, 92%, 50%)", "hsl(219, 94%, 50%)", "hsl(260, 95%, 50%)", "hsl(11, 93%, 50%)", "hsl(238, 94%, 50%)", "hsl(289, 94%, 50%)", "hsl(78, 92%, 50%)"];
 
 const setting = {
   chart: {},  
   chartType: 'bar',
   chartName: 'My Chart',
-  x_axis: name,
-   y_axis: meanings,
-  bg_color: colorCell,  
+  x_axis:  name,
+  y_axis: arrTable[1],
+  bg_color: colorCell,
   bg_cache: null
 }
 
+/* ========== CHART SETTING END ========== */
+/* ========== CHART CREATING  ============ */
 function paint(){
   setting.chart = new Chart(ctx, {
     type: setting.chartType,  // 'line', 'bar', 'pie', 'doughnut'
@@ -95,34 +98,34 @@ function updateType (e) {
   const isLine = e.target.dataset.type === 'line' ? true : false;
   
  // line have one background color, other type have array of colors
- if(isLine) {
-  setting.bg_cache = setting.bg_color;
-  setting.bg_color = '#808';
-} else if (setting.bg_cache){
-  setting.bg_color  = setting.bg_cache;
-} else {
-  setting.bg_cache = setting.bg_color;
-}
-setting.chartType = e.target.textContent;
-
+  if(isLine) {
+    setting.bg_cache = setting.bg_color;
+    setting.bg_color = '#808';
+  } else if (setting.bg_cache){
+    setting.bg_color  = setting.bg_cache;
+  } else {
+    setting.bg_cache = setting.bg_color;
+  }
+  setting.chartType = e.target.getAttribute('data-type');
+  console.log(setting.chartType);
   // delete old chart and pain new cart with new setting
   setting.chart.destroy();
   paint();
 }
 /* ========== CHART UPDATE TYPE END ============ */
 /* ========== CHART UPDATE NAME  ============ */
-// function updateName (e) {
-//   e.preventDefault();
-//   setting.chartName = elemInputChartName.value;
-//     // delete old chart and pain new cart with new setting
-//     setting.chart.destroy();
-//     paint();
-//   }
-  /* ========== CHART UPDATE NAME END ============ */
-
-  /* ============ LISTNER ============ */
-  // btnType.addEventListener('click', updateType, false);
-  // elemInputChartName.addEventListener('blur', updateName, false);
-  /* ========== LISTNER END ========== */
-
+function updateName (e) {
+  e.preventDefault();
+  setting.chartName = elemInputChartName.value;
+    // delete old chart and pain new cart with new setting
+  setting.chart.destroy();
   paint();
+}
+/* ========== CHART UPDATE NAME END ============ */
+
+/* ============ LISTNER ============ */
+btnType.addEventListener('click', updateType, false);
+// elemInputChartName.addEventListener('blur', updateName, false);
+/* ========== LISTNER END ========== */
+
+paint();

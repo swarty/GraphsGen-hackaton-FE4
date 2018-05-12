@@ -44,7 +44,7 @@
   <header class="s_header">FE4 ^__^</header>
   <div class="s_content">
     <aside class="s_leftBlock">
-      <div class="s_menu">
+      <div class="s_menu btn-type-wrp">
         <button data-type="bar" class="s_menu__button">
           <img src="img/icon-1.png" alt="">
           Bar chart</button>
@@ -62,7 +62,7 @@
         <div class="s_tableNavBar">
           <input type="text" class="s_table__input">
           <div>
-              <div id="loadExcel" class="img_download"><input type="file" name="excel-table"/></div>
+            <div id="loadExcel" class="img_download"><input type="file" name="excel-table"/></div>
           </div>
           <div href="#" class="s_table__colorPicker"></div>
           <button class="s_table__button">Save</button>
@@ -71,17 +71,17 @@
           <div id="htmlout">
             <div id="outfile"></div>
           </div>
-          <table>
+          <table class="native-table">
             <thead>
               <tr>
                 <th>Месяц</th>
-                <th>Продажи</th>
+                <th>Сумма</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Май</td>
-                <td>1000</td>
+                <td contenteditable="true">Июнь</td>
+                <td contenteditable="true">500</td>
               </tr>
               <tr>
                 <td contenteditable="true">Июнь</td>
@@ -90,46 +90,6 @@
               <tr>
                 <td contenteditable="true">Июль</td>
                 <td contenteditable="true">300</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
               </tr>
             </tbody>
           </table>
@@ -140,7 +100,9 @@
       </div>
       <div class="s_download">
         <button class="s_downloadPdf">
-          <span class="s_downloadPdf__icon"></span>Download PDF</button>
+          <div class="icon"></div>
+          <div class="z">Download PDF</div>
+      </button>
       </div>
     </aside>
     <main class="s_rightBlock">
@@ -173,4 +135,7 @@ setEqualWidth(); -->
   <script src="js/s_table.js"></script>
   <script src="js/graphics.js"></script>
   <script src="js/dmytro.js"></script>
+  <script src="js/mouseMove.js"></script>
 </body>
+</html>
+
