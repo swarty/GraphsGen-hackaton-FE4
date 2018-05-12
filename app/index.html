@@ -24,43 +24,129 @@
 
 
   <!--logic -->
-  <section class="s_logic">
-    <input type="text" class="input__field">
-    <table>
-      <tr>
-        <td>Red</td>
-        <td>200</td>
-      </tr>
-      <tr>
-        <td>White</td>
-        <td>300</td>
-      </tr>
-    </table>
-  </section>
+  <!-- <section class="s_logic">
+      <input type="text" class="input__field">
+      <table>
+        <tr>
+          <td>Red</td>
+          <td>200</td>
+        </tr>
+        <tr>
+          <td>White</td>
+          <td>300</td>
+        </tr>
+      </table>
+    </section> -->
   <!-- end logic -->
 
 
 
 
+  <header class="s_header">FE4 ^__^</header>
+  <div class="s_content">
+    <aside class="s_leftBlock">
+      <div class="s_nav"></div>
+      <div class="s_table">
+        <div class="s_tableNavBar">
+          <input type="text" class="s_table__input">
+          <div>
+            <input type="file" name="excel-table" id="loadExcel" class="img_download" />
+          </div>
+          <div href="#" class="s_table__colorPicker"></div>
+          <button class="s_table__button">Save</button>
+        </div>
+        <div class="s_tableBox">
+          <div id="htmlout">
+            <div id="outfile"></div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Месяц</th>
+                <th>Продажи</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Май</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>Июнь</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>Июль</td>
+                <td>300</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="s_docName">
+          <span>Статистика за 2017.xls</span>
+        </div>
+      </div>
+      <div class="s_download">
+        <button class="s_downloadPdf">
+          <span class="s_downloadPdf__icon"></span>Download PDF</button>
+      </div>
+    </aside>
+    <main class="s_rightBlock">
+      <div class="s_chart">
+        <!-- <span>Pie chart</span> -->
 
+        <!-- section graphics logic -->
+        <div class="graphics">
+          <canvas class="myChart" id="myChart"></canvas>
+        </div>
+        <!-- end graphics logic -->
 
-
-  <!-- <start section> -->
-  <div class="wrapper">
-    <div class="row">
-      <!-- <div id="loadExcel"><img src="img/download.png" class="img_download"></div> -->
-      <input type="file" name="excel-table" id="loadExcel" class="img_download" />
-    </div>
-    <div id="htmlout">
-      <div id="outfile"></div>
-    </div>
+      </div>
+    </main>
   </div>
-  <!-- <finished section> -->
 
 
-  <div class="graphics">
-    <canvas class="myChart" id="myChart" height="300"></canvas>
-  </div>
+
 
 
 
@@ -69,7 +155,6 @@
   <script src="js/s_table.js"></script>
   <script src="js/graphics.js"></script>
   <script src="js/dmytro.js"></script>
-
 </body>
 
 </html>
