@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // settings for edit rows
     let edittableRows = document.querySelectorAll('td');
+
     edittableRows.forEach( element => {
     
     // set for all row attribute edditable
@@ -17,5 +18,9 @@ document.addEventListener('DOMContentLoaded', function(){
     function correction(){
         let firstTable = document.querySelectorAll('table');
         console.log(firstTable.length)
+
+        // check if more then 2 tables
     }
+
+
 })
