@@ -8,5 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
         element.setAttribute('contenteditable', "true");
     });
 
+    // document.addEventListener('.img_download')
+
+
     // create new table
+
+    function correction() {
+        let firstTable = document.querySelectorAll('table');
+        console.log(firstTable.length);
+    }
 });
