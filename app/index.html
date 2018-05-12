@@ -62,7 +62,7 @@
         <div class="s_tableNavBar">
           <input type="text" class="s_table__input">
           <div>
-            <input type="file" name="excel-table" id="loadExcel" class="img_download" />
+              <div id="loadExcel" class="img_download"><input type="file" name="excel-table"/></div>
           </div>
           <div href="#" class="s_table__colorPicker"></div>
           <button class="s_table__button">Save</button>
@@ -84,12 +84,12 @@
                 <td>1000</td>
               </tr>
               <tr>
-                <td>Июнь</td>
-                <td>500</td>
+                <td contenteditable="true">Июнь</td>
+                <td contenteditable="true">500</td>
               </tr>
               <tr>
-                <td>Июль</td>
-                <td>300</td>
+                <td contenteditable="true">Июль</td>
+                <td contenteditable="true">300</td>
               </tr>
               <tr>
                 <td></td>
@@ -158,7 +158,13 @@
   </div>
 
 
-
+  
+  <!-- tbody.innerHTML 
+  += `<tr>
+      <td contenteditable="true" onBlur=updateChart() >for_data</td>
+      <td contenteditable="true" onBlur=updateChart() >for_data</td>
+  </tr>`;
+setEqualWidth(); -->
 
 
 
