@@ -17,5 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function correction() {
         let firstTable = document.querySelectorAll('table');
         console.log(firstTable.length);
+
+        // check if more then 2 tables
     }
 });
