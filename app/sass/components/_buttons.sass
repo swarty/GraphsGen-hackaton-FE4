@@ -1,13 +1,12 @@
 .s_menu
-    width: 100%
-    margin-bottom: 20px
-
+    display: flex;
+    margin-bottom: 30px 
     &__button
-        max-width: 25%
-        width: 100%
-        min-height: 45px
-        padding: 5px 15px
+        position: relative;
+        height: 40px 
+        width: 25% 
         border: 1px solid #ff5722
+<<<<<<< HEAD
         float: left
         color: #757575
         background-color: transparent
@@ -27,10 +26,36 @@
             path
                 transition: all .5s
                 fill: #ff5722
+=======
+        background-color: white;
+        color: grey;
+        text-indent: 40px;
+        &:hover
+            background-color: #ff5722
+            transition: all .3s
+            color: white
+        &::before
+            top: 50%
+            background-repeat: no-repeat 
+            left: 5px
+            transform: translatey(-50%)
+            background-size: contain;
+            content: "" 
+            display: block;
+            position: absolute;
+            width: 30px;
+            height: 30px; 
+>>>>>>> 9f057af851a5824f2b10ad4a73c5ffc1ddc38553
         &:first-child
-            border-top-left-radius: 15px
-            border-bottom-left-radius: 15px
+            border-top-left-radius: 10px
+            border-bottom-left-radius: 10px
+            &::before
+                background-image: url(../../img/icon-1.png)
+            &:hover
+                &::before
+                    background-image: url(../../img/icon-1-white.png)
         &:last-child
+<<<<<<< HEAD
             border-top-right-radius: 15px
             border-bottom-right-radius: 15px
         &--active
@@ -39,3 +64,25 @@
             svg
                 path
                     fill: #fff
+=======
+            border-top-right-radius: 10px
+            border-bottom-right-radius: 10px
+            &::before
+                background-image: url(../../img/icon-4.png)
+            &:hover
+                &::before
+                    background-image: url(../../img/icon-4-white.png)
+        &:nth-child(2)
+            &::before
+                background-image: url(../../img/icon-2.png)
+            &:hover
+                &::before
+                    background-image: url(../../img/icon-2-white.png)
+        &:nth-child(3)
+            &::before
+                background-image: url(../../img/icon-3.png)
+            &:hover
+                &::before
+                    background-image: url(../../img/icon-3-white.png)
+
+>>>>>>> 9f057af851a5824f2b10ad4a73c5ffc1ddc38553
