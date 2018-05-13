@@ -1,0 +1,56 @@
+@import "base/general"
+
+.s_downloadPdf
+    position: relative;
+    appearance: none;
+    background: #ff5722;
+    padding: 1em 2em;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    border-radius: 15px;
+    text-indent: 15px;
+
+    span
+        position: relative;
+        pointer-events: none;
+    
+    
+    &::before
+        --size: 0;
+
+        content: '';
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: var(--size);
+        height: var(--size);
+        background: radial-gradient(circle closest-side, #fb1c3c, transparent);
+        transform: translate(-50%, -50%);
+        transition: width .2s ease, height .2s ease;
+    
+    
+    &:hover::before
+        --size: 150px;
+
+.icon
+	background: url(../../img/icon_downloadpdf.png) no-repeat transparent;
+	background-size: contain;
+	display: block
+	position: absolute;
+	width: 30px
+	height: 40px
+	top: 10px
+	left: 20px
+.z
+	display: inline-block
+	width: 100% 
+
+
+ 
+
+
+	

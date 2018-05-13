@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+
     // ----------------------- fileloader -----------------------------
     // part for file loader
     function loadFile() {
+
 
         const inputLoadExcelFile = document.getElementById('loadExcel');
         const parentTable = document.getElementById('outfile');
@@ -11,11 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function addToHTML(e) {
 
+
+
             // change const value for can changing reader
             let reader = new FileReader();
             reader.readAsArrayBuffer(e.target.files[0]);
 
-            console.log(e);
+            // write name of file infor place after table
+            let spanWrap = document.querySelector('.s_docName');
+
+            // get name of file and input it on doc
+            spanWrap.innerHTML +=`<span> File name: ${e.target.files[0].name} </span>` ;
 
             // update function for can choose more then one time docs
             let button = document.querySelector('.img_download');
@@ -23,10 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // reset table after click
                 reader = "";
-            });
+
+            })
 
             // start preloader
             $('.holder').fadeIn();
+
 
             reader.addEventListener("loadend", function () {
 
@@ -35,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     type: 'array'
                 });
 
+
                 // reset prev table on new table
                 resetTables();
 
@@ -42,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 process_wb(wb);
 
                 // make edditable false for headers table
-                createEditRows();
+                createEditRows()
 
                 // function for autochanging
 
@@ -51,20 +62,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // resetValues auto
                 resetGraphAuto();
+                
+                resetbyBlur()
+
+
+
             });
         }
 
-        function process_wb(wb) {
-            // имя листа документа - берем 1-й, но можно и по названию sheet:"page 1"
+        function process_wb(wb) { // имя листа документа - берем 1-й, но можно и по названию sheet:"page 1"
             parentTable.innerHTML = XLSX.utils.sheet_to_html(wb.Sheets[wb.SheetNames[0]], {
                 editable: true
             }).replace("<table", '<table id="table" border="1"');
         }
 
-        resetbyBlur();
     }
 
     // ------------------------- end fileloader -----------------------------------------
+
 
 
     // ------------------------- chart logic render -------------------------------------
@@ -78,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // all td
     let td = null;
+
 
     // create mass(object) with Colors values and Edits values
     function getArraysFromTable() {
@@ -102,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     getArraysFromTable();
 
+
     // value with Edits(numbers)
     let meanings = arrTable[1];
 
@@ -110,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // mass with colors
     let colorCell = ["hsl(81, 94%, 50%)", "hsl(162, 95%, 50%)", "hsl(141, 91%, 50%)", "hsl(164, 92%, 50%)", "hsl(219, 94%, 50%)", "hsl(260, 95%, 50%)", "hsl(11, 93%, 50%)", "hsl(238, 94%, 50%)", "hsl(289, 94%, 50%)", "hsl(78, 92%, 50%)"];
+
 
     // settings for canvas
     const setting = {
@@ -120,9 +138,11 @@ document.addEventListener('DOMContentLoaded', function () {
         y_axis: arrTable[1],
         bg_color: colorCell,
         bg_cache: null
+    }
 
-        // function render canvas 
-    };function paint() {
+
+    // function render canvas 
+    function paint() {
         setting.chart = new Chart(ctx, {
             type: setting.chartType, // 'line', 'bar', 'pie', 'doughnut'
             data: {
@@ -177,6 +197,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
+
     // logic for graps paints
     function updateType(e) {
         e.preventDefault();
@@ -184,10 +206,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // remove classes from unactive buttons
         document.querySelectorAll('.s_menu__button').forEach(e => {
             e.classList.remove('s_menu__button--active');
-        });
+        })
+
 
         // add class on buttons active
         e.path[0].classList.add('s_menu__button--active');
+
+
 
         const isLine = e.target.dataset.type === 'line' ? true : false;
 
@@ -210,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resetGraphAuto();
     }
 
+
     // name for cancas graph
     function updateName(e) {
         e.preventDefault();
@@ -219,10 +245,13 @@ document.addEventListener('DOMContentLoaded', function () {
         paint();
     }
 
+
     // listeners for updates
     btnType.addEventListener('click', updateType, false);
 
     // ------------------------- end shart logic render ---------------------------------
+
+
 
 
     // ------------------------- aplication user logic ----------------------------------
@@ -233,13 +262,15 @@ document.addEventListener('DOMContentLoaded', function () {
         edittableRows.forEach(element => {
             // set for all row attribute edditable
             element.setAttribute('contenteditable', "true");
-        });
+        })
+
 
         // exceptions, can rewrite using filter()
         function removeFromHeaders() {
             edittableRows[0].setAttribute('contenteditable', "false");
             edittableRows[1].setAttribute('contenteditable', "false");
         }
+
 
         // question for remove edittable fields from exports tables
         if (edittableRows[0].querySelector('span') && edittableRows[1].querySelector('span')) {
@@ -250,18 +281,25 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             removeFromHeaders();
         }
+
+
     }
+
 
     // autoReset grapht without clicking
     function resetbyBlur() {
-        td.forEach(elem => {
+        td.forEach((elem) => {
             elem.addEventListener('click', function (e) {
 
                 // autoreset
                 e.target.addEventListener('blur', resetGraphAuto);
-            });
-        });
+            })
+        })
     }
+
+
+
+
 
     // delete prev table before load file
     function resetTables() {
@@ -269,6 +307,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // override exist table
         allTables[0].innerHTML = " ";
     }
+
+
 
     // update new canvas via click
     function resetGraph() {
@@ -279,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // get valuef from new table/change table
             getArraysFromTable();
 
+
             // set new values in setting for render canvas
             setting.chart.data.labels = arrTable[0];
             setting.chart.data.datasets[0].data = arrTable[1];
@@ -288,7 +329,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 duration: 800,
                 easing: 'easeOutBounce'
             });
-        });
+
+
+        })
     }
 
     // update via not click on buttons
@@ -296,6 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // get valuef from new table/change table
         getArraysFromTable();
+
 
         // set new values in setting for render canvas
         setting.chart.data.labels = arrTable[0];
@@ -306,7 +350,9 @@ document.addEventListener('DOMContentLoaded', function () {
             duration: 800,
             easing: 'easeOutBounce'
         });
+
     }
+
 
     // make rows in table edditable
     createEditRows();
@@ -324,4 +370,4 @@ document.addEventListener('DOMContentLoaded', function () {
     resetbyBlur();
 
     // ---------------------------- end aplication user logic ----------------------------
-});
+})

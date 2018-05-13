@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const ctx = document.getElementById("myChart");
 const docName = document.querySelector(".s_docName");
 const nameGraph = docName.querySelector("span");
@@ -95,42 +96,20 @@ const setting = {
   });
 }
 /* ========== CHART CREATING END ============ */
+=======
+
+
+/* ========== DOM ELEMENTS END ========== */
+>>>>>>> 9a358af7e1eb84c913208fc392f9abce82a62ac3
 
 /* ========== CHART UPDATE TYPE ============ */
-function updateType(e) {
-  e.preventDefault();
 
-  const isLine = e.target.dataset.type === 'line' ? true : false;
-
-  // line have one background color, other type have array of colors
-  if (isLine) {
-    setting.bg_cache = setting.bg_color;
-    setting.bg_color = '#808';
-  } else if (setting.bg_cache) {
-    setting.bg_color = setting.bg_cache;
-  } else {
-    setting.bg_cache = setting.bg_color;
-  }
-  setting.chartType = e.target.getAttribute('data-type');
-  console.log(setting.chartType);
-  // delete old chart and pain new cart with new setting
-  setting.chart.destroy();
-  paint();
-}
 /* ========== CHART UPDATE TYPE END ============ */
 /* ========== CHART UPDATE NAME  ============ */
-function updateName(e) {
-  e.preventDefault();
-  setting.chartName = elemInputChartName.value;
-  // delete old chart and pain new cart with new setting
-  setting.chart.destroy();
-  paint();
-}
+
 /* ========== CHART UPDATE NAME END ============ */
 
 /* ============ LISTNER ============ */
-btnType.addEventListener('click', updateType, false);
+
 // elemInputChartName.addEventListener('blur', updateName, false);
 /* ========== LISTNER END ========== */
-
-paint();

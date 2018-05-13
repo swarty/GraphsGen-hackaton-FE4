@@ -1,7 +1,7 @@
 .s_menu
     width: 100%
     margin-bottom: 20px
-    
+
     &__button
         max-width: 25%
         width: 100%
@@ -10,19 +10,23 @@
         border: 1px solid #ff5722
         float: left
         color: #757575
-        background-color: #fff
+        background-color: transparent
         font-size: 12px
         text-indent: 35px
         line-height: 1.5
         text-align: right
         position: relative
-        img
+        svg
             width: 25%
+            z-index: 0
             position: absolute
             left: 15px
             top: 50%
             transform: translateY(-50%)
             height: auto
+            path
+                transition: all .5s
+                fill: #ff5722
         &:first-child
             border-top-left-radius: 15px
             border-bottom-left-radius: 15px
@@ -32,10 +36,6 @@
         &--active
             background-color: #ff5722
             color: white
-    #bar
-        
-    #line 
-    #pie 
-    #doughnut 
-        
-    
+            svg
+                path
+                    fill: #fff
