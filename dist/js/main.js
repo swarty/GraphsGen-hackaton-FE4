@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // select cancas node
     const ctx = document.getElementById("myChart");
+    ctx.fillStyle = 'rgb(255,255,255)';
 
     // select menu-type graphs node
     const btnType = document.querySelector(".btn-type-wrp");
@@ -278,6 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function resetGraph() {
         // button reset event
         let reset = document.querySelector('.s_table__button');
+
         reset.addEventListener('click', function () {
 
             // get valuef from new table/change table
@@ -286,6 +288,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // set new values in setting for render canvas
             setting.chart.data.labels = arrTable[0];
             setting.chart.data.datasets[0].data = arrTable[1];
+
+            // update title
+            setting.chart.options.title.text = document.querySelector('.s_table__input').value;
 
             setting.chart.update({
                 // todo animation logic
@@ -311,6 +316,79 @@ document.addEventListener('DOMContentLoaded', function () {
             easing: 'easeOutBounce'
         });
     }
+
+    // export in PDF
+    function pdfDownload() {
+        const download = document.querySelector(".s_downloadPdf");
+
+        const ctxElem = document.getElementById("myChart");
+        const ctx = ctxElem.getContext('2d');
+        const img = document.getElementById('img-from-canvas');
+
+        function getPDF() {
+            // ctx.fillStyle = "rgb(200, 200, 200)";
+            const imgData = ctxElem.toDataURL("image/png", 1.0);
+            img.setAttribute('src', imgData);
+            const pdf = new jsPDF("p", "mm", "a4");
+
+            pdf.addImage(imgData, "PNG", 10, 10, 200, 180);
+            pdf.save("my-chart.pdf");
+        }
+
+        download.addEventListener("click", getPDF);
+    }
+    pdfDownload();
+
+    // export canvas in png
+    function exportCanvas() {
+        var button = document.querySelector('.s_downloadPng');
+        button.addEventListener('click', function (e) {
+            var dataURL = document.querySelector('.myChart').toDataURL('image/png');
+            button.href = dataURL;
+        });
+    }
+    exportCanvas();
+
+    // logic for add new row in table
+    function addRow() {
+        let table = document.querySelector('tbody');
+
+        document.querySelector('.s_new-row').addEventListener('click', function () {
+
+            // console.log("lalalal")
+            table.innerHTML += `<tr>
+                <td></td>
+                <td></td>
+            </tr>`;
+
+            createEditRows();
+        });
+    }
+
+    addRow();
+
+    // reset row additional function
+    // function deleteRow(){
+    //     let table = document.querySelector('tbody');
+
+
+    //     document.querySelector('.s_delete-row').addEventListener('click', function(){
+
+    //         table.querySelectorAll('tr').length = table.querySelectorAll('tr').length - 1;
+
+    //         createEditRows();
+    //     })
+    // }
+
+    // deleteRow();
+
+
+    // unpdate name grapg
+
+    // function updateGraphName(){
+    //     document.querySelector('.s_table__input').textContent = setting.chart.data.datasets.label;
+    // }
+
 
     // make rows in table edditable
     createEditRows();
