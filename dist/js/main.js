@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // resetValues auto
                 resetGraphAuto();
+
+                resetbyBlur();
             });
         }
 
@@ -60,8 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 editable: true
             }).replace("<table", '<table id="table" border="1"');
         }
-
-        resetbyBlur();
     }
 
     // ------------------------- end fileloader -----------------------------------------
