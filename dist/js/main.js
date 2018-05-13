@@ -312,6 +312,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    //added td color in tr
+    function addCell() {
+        const td = '<td class=\"paint\"></td>';
+        trd.forEach(col => {
+            col.insertAdjacentHTML('beforeend', td);
+        });
+    }
+
+    addCell();
+
     // make rows in table edditable
     createEditRows();
 

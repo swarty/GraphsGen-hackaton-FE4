@@ -71,12 +71,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         function process_wb(wb) { // имя листа документа - берем 1-й, но можно и по названию sheet:"page 1"
-            parentTable.innerHTML = XLSX.utils.sheet_to_html(wb.Sheets[wb.SheetNames[0]], {
-                editable: true
-            }).replace("<table", '<table id="table" border="1"');
-        }
-
+        parentTable.innerHTML = XLSX.utils.sheet_to_html(wb.Sheets[wb.SheetNames[0]], {
+            editable: true
+        }).replace("<table", '<table id="table" border="1"');
     }
+
+}
 
     // ------------------------- end fileloader -----------------------------------------
 
@@ -352,6 +352,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
+
+
+
+
+    //added td color in tr
+    function addCell() {
+      const td = '<td class=\"paint\"></td>'; 
+      trd.forEach(col => {
+        col.insertAdjacentHTML('beforeend', td);
+    })
+  }
+
+  addCell();
+
 
 
     // make rows in table edditable
