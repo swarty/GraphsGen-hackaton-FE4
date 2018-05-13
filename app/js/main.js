@@ -1,4 +1,7 @@
+$('.holder').fadeIn();
+
 document.addEventListener('DOMContentLoaded', function () {
+    $('.holder').fadeOut();
 
 
     // ----------------------- fileloader -----------------------------
@@ -87,13 +90,139 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // select cancas node
     const ctx = document.getElementById("myChart");
-    ctx.fillStyle = 'rgb(255,255,255)';
 
     // select menu-type graphs node
     const btnType = document.querySelector(".btn-type-wrp");
 
     // all td
     let td = null;
+    let tr = null;
+
+
+    // colorPicker
+    function colorPickerInit() {
+
+        // rows in picker
+        const firstLine = document.querySelector(".first");
+        const nextLine = document.querySelector(".next");
+        const endLine = document.querySelector(".end");
+
+        // colors in picker
+        const color1 = ['#ed1c24', '#fff200', '#00a651', '#00aeef', '#9e1f63', '#ec008c', '#be1e2d', '#ef4136'];
+        const color2 = ['#f15a29', '#f7941d', '#fbb040', '#d7df23', '#8dc63f', '#39b54a', '#009444', '#006838'];
+        const color3 = ['#2bb673', '#00a79d', '#27aae1', '#1b75bc', '#2b3990', '#262262', '#662d91', '#92278f'];
+
+
+        // settings for colorPicker
+        function generate(value1, value2, value3) {
+            let line1 = '<div class=\"active-color\" data-color=\"' + value1 + '\" style=\"background-color: ' + value1 + '\"></div>';
+            let line2 = '<div class=\"active-color\" data-color=\"' + value2 + '\" style=\"background-color: ' + value2 + '\"></div>';
+            let line3 = '<div class=\"active-color\" data-color=\"' + value3 + '\" style=\"background-color: ' + value3 + '\"></div>';
+            firstLine.insertAdjacentHTML('beforeend', line1);
+            nextLine.insertAdjacentHTML('beforeend', line2);
+            endLine.insertAdjacentHTML('beforeend', line3);
+        };
+
+        for (let index = 0; index < 8; index++) {
+            generate(color1[index], color2[index], color3[index]);
+        };
+    }
+    colorPickerInit();
+
+
+    // colorPicker page paint
+    const activeColor = document.querySelector(".blockColors");
+
+    // 3th cell index
+    let id = null;
+
+
+    function drawFields() {
+
+
+
+        activeColor.addEventListener('click', function (e) {
+            let color = e.target.getAttribute('data-color');
+
+            const rowThree = Array.from(tr, el => el.querySelectorAll('td')[2]);
+
+            for (let index = 0; index < colorCell.length; index++) {
+
+                colorCell[id] = color;
+            };
+            setting.chart.destroy();
+            paint();
+
+            let a  = document.querySelectorAll("td[data-index]");
+            a[id].style.backgroundColor = color;
+            
+            $(activeColor).fadeOut();
+
+            // nextCell.style.backgroundColor = color;
+            
+            id = null;
+
+        });     
+    }
+
+
+    // display colorPicker
+    function showPicker(e) {
+        $(activeColor).fadeIn();
+        id = e.target.getAttribute('data-index');
+        // console.log(id);
+    };
+
+
+
+    // add cells for paint
+    function addCell() {
+
+        // tdColor.classList.add('paint');
+        const tdColor = '<td class=\"paint\"></td>';
+        tr.forEach(col => {
+            col.insertAdjacentHTML('beforeend', tdColor);
+        })
+
+        const rowThree = Array.from(tr, el => el.querySelectorAll('td')[2]);
+        rowThree[0].textContent = "Ваш цвет";
+
+    }
+
+
+    getArraysFromTable();
+
+
+    // add cells
+
+    addCell();
+
+    // show colorPicker by click
+
+    function setAttributesColorRows(value) {
+
+
+        const colorRow = Array.from(tr, el => el.querySelectorAll('td')[2]);
+
+
+        colorRow.forEach((element, index) => {
+
+            if (index !== 0) {
+                element.setAttribute('data-paint', value);
+                element.setAttribute('data-index', index - 1);
+                element.addEventListener('click', showPicker);
+            }
+
+        })
+
+        drawFields();
+
+    }
+    setAttributesColorRows();
+
+
+
+
 
 
     // create mass(object) with Colors values and Edits values
@@ -106,18 +235,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const td0 = Array.from(tr, el => el.querySelectorAll('td')[0].textContent);
         const td1 = Array.from(tr, el => el.querySelectorAll('td')[1].textContent);
 
-        // first row only for headers!
-        // td0.slice(1, td0.length);
-        // first row only for headers!
-        // td1.slice(1, td1.length)
-
-
-        // add new mass after reload graph
-
-
         return arrTable = [td0.slice(1, td0.length), td1.slice(1, td1.length)];
+
+        // addCell();
     }
-    getArraysFromTable();
 
 
     // value with Edits(numbers)
@@ -260,6 +381,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function createEditRows() {
         // settings for edit rows
+
+
         let edittableRows = document.querySelectorAll('td');
         edittableRows.forEach(element => {
             // set for all row attribute edditable
@@ -271,15 +394,17 @@ document.addEventListener('DOMContentLoaded', function () {
         function removeFromHeaders() {
             edittableRows[0].setAttribute('contenteditable', "false");
             edittableRows[1].setAttribute('contenteditable', "false");
+            edittableRows[2].setAttribute('contenteditable', "false");
         }
 
 
         // question for remove edittable fields from exports tables
-        if (edittableRows[0].querySelector('span') && edittableRows[1].querySelector('span')) {
+        if (edittableRows[2].querySelector('span') && edittableRows[0].querySelector('span') && edittableRows[1].querySelector('span')) {
 
             removeFromHeaders();
             edittableRows[0].querySelector('span').setAttribute('contenteditable', "false");
             edittableRows[1].querySelector('span').setAttribute('contenteditable', "false");
+            edittableRows[2].querySelector('span').setAttribute('contenteditable', "false");
         } else {
             removeFromHeaders();
         }
@@ -338,6 +463,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 easing: 'easeOutBounce'
             });
 
+            
+            // addCell();
+            // createEditRows();
 
         })
     }
@@ -358,6 +486,8 @@ document.addEventListener('DOMContentLoaded', function () {
             duration: 800,
             easing: 'easeOutBounce'
         });
+
+        // addCell();
 
     }
 
