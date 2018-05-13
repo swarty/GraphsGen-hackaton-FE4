@@ -19,7 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
             let reader = new FileReader();
             reader.readAsArrayBuffer(e.target.files[0]);
 
-            console.log(e)
+            // write name of file infor place after table
+            let spanWrap = document.querySelector('.s_docName');
+
+            // get name of file and input it on doc
+            spanWrap.innerHTML +=`<span> File name: ${e.target.files[0].name} </span>` ;
 
             // update function for can choose more then one time docs
             let button = document.querySelector('.img_download');
